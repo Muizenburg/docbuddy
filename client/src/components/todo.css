@@ -1,0 +1,14 @@
+.todo-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons > button {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.action-buttons {
+  display: grid;
+  place-content: center;
+}
