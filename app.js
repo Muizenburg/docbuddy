@@ -43,6 +43,14 @@ app.use("/api", todoRoutes);
 app.use("/api", bookingRoutes);
 app.use("/api", usersRoutes);
 
+const path = require("path");
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 // Establish Port
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
